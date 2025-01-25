@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Voz do Trabalhador
 
-## Getting Started
+## Visão Geral
 
-First, run the development server:
+Voz do Trabalhador é uma plataforma web que permite aos trabalhadores registrar reclamações anônimas, avaliar empresas e acessar recursos educacionais sobre direitos trabalhistas. O projeto visa promover ambientes de trabalho mais justos e respeitosos no Brasil.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Tecnologias Utilizadas
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Frontend:**
+  - Next.js 13 (App Router)
+  - React 18
+  - TypeScript
+  - Tailwind CSS
+  - Shadcn UI (componentes reutilizáveis)
+  - Lucide React (ícones)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Backend:**
+  - Next.js API Routes
+  - Prisma ORM
+  - PostgreSQL
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Autenticação:**
+  - NextAuth.js
 
-## Learn More
+- **Testes:**
+  - Jest
+  - React Testing Library
 
-To learn more about Next.js, take a look at the following resources:
+- **Outras Ferramentas:**
+  - ESLint (linting)
+  - Prettier (formatação de código)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Funcionalidades Principais
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. **Sistema de Reclamações Anônimas:**
+   - Registro de reclamações
+   - Acompanhamento de status
+   - Comentários e atualizações
 
-## Deploy on Vercel
+2. **Avaliações de Empresas:**
+   - Sistema de classificação por estrelas
+   - Comentários detalhados
+   - Moderação de avaliações
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3. **Recursos Educacionais:**
+   - Guias sobre direitos trabalhistas
+   - Informações sobre proteção no trabalho
+   - Categorização de recursos
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+4. **Painel de Administração:**
+   - Gerenciamento de usuários
+   - Moderação de reclamações e avaliações
+   - Análise de dados e relatórios
+
+5. **Perfil do Usuário:**
+   - Histórico de reclamações e avaliações
+   - Configurações de conta
+   - Sistema de notificações
+
+6. **Pesquisa Integrada:**
+   - Busca por empresas, reclamações e recursos
+
+7. **Chatbot de Suporte:**
+   - Assistência básica aos usuários
+   - Direcionamento para recursos relevantes
+
+## Estrutura do Projeto
+

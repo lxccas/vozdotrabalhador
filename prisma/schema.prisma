@@ -1,0 +1,142 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String       @id @default(cuid())
+  name          String
+  email         String       @unique
+  password      String
+  role          String       @default("user")
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+  complaints    Complaint[]
+  reviews       Review[]
+  comments      Comment[]
+  notifications Notification[]
+  pushSubscriptions PushSubscription[]
+  notificationPreferences NotificationPreferences?
+  adminLogs     AdminLog[]
+  inscricoes    Inscricao[]  // Relacionamento com Inscricao
+}
+
+model Evento {
+  id          Int         @id @default(autoincrement())
+  nome        String
+  descricao   String
+  data        DateTime
+  localizacao String
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+  inscricoes  Inscricao[] // Relacionamento com Inscricao
+}
+
+model Inscricao {
+  id        Int      @id @default(autoincrement())
+  eventoId  Int
+  userId    String
+  createdAt DateTime @default(now())
+
+  evento    Evento   @relation(fields: [eventoId], references: [id])
+  user      User     @relation(fields: [userId], references: [id])
+}
+
+model Complaint {
+  id          String     @id @default(cuid())
+  title       String
+  description String
+  category    String
+  status      String     @default("pending")
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+  userId      String
+  user        User       @relation(fields: [userId], references: [id])
+  comments    Comment[]
+  tags        Tag[]
+}
+
+model Company {
+  id        String   @id @default(cuid())
+  name      String   @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  reviews   Review[]
+}
+
+model Review {
+  id        String   @id @default(cuid())
+  rating    Int
+  content   String
+  status    String   @default("pending")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  companyId String
+  company   Company  @relation(fields: [companyId], references: [id])
+}
+
+model Comment {
+  id          String    @id @default(cuid())
+  content     String
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  userId      String
+  user        User      @relation(fields: [userId], references: [id])
+  complaintId String
+  complaint   Complaint @relation(fields: [complaintId], references: [id])
+}
+
+model Notification {
+  id        String   @id @default(cuid())
+  message   String
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+}
+
+model Tag {
+  id         String      @id @default(cuid())
+  name       String      @unique
+  complaints Complaint[]
+}
+
+model AdminLog {
+  id        String   @id @default(cuid())
+  action    String
+  details   String
+  createdAt DateTime @default(now())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+}
+
+model PushSubscription {
+  id        String   @id @default(cuid())
+  userId    String
+  endpoint  String
+  p256dh    String
+  auth      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  user      User     @relation(fields: [userId], references: [id])
+
+  @@unique([userId, endpoint])
+}
+
+model NotificationPreferences {
+  id          String   @id @default(cuid())
+  userId      String   @unique
+  user        User     @relation(fields: [userId], references: [id])
+  complaints  Boolean  @default(true)
+  newReviews  Boolean  @default(true)
+  newResources Boolean @default(true)
+}

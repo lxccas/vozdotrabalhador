@@ -1,101 +1,157 @@
-import Image from "next/image";
+import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
+import { AlertTriangle, BarChart2, Users, ArrowRight, Shield, Book } from "lucide-react"
+import Link from "next/link"
+import { OptimizedImage } from "@/components/OptimizedImage"
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div className="flex flex-col min-h-screen">
+      <main className="flex-grow">
+        <section className="relative overflow-hidden">
+          <div className="absolute inset-0 hero-pattern opacity-50"></div>
+          <div className="relative gradient-bg py-24">
+            <div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
+              <div className="md:w-1/2 mb-10 md:mb-0">
+                <h1 className="text-4xl md:text-6xl font-heading font-bold mb-6 leading-tight bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-700">
+                  Sua Voz, <br />
+                  Seu Poder
+                </h1>
+                <p className="text-xl mb-8 text-gray-600 max-w-lg">
+                  Juntos, construímos um ambiente de trabalho mais justo e respeitoso para todos os brasileiros.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <Button asChild size="lg" className="bg-primary hover:bg-primary/90">
+                    <Link href="/reclamacoes/nova">
+                      Registrar Reclamação
+                      <ArrowRight className="ml-2 h-5 w-5" />
+                    </Link>
+                  </Button>
+                  <Button
+                    asChild
+                    size="lg"
+                    variant="outline"
+                    className="border-primary text-primary hover:bg-primary/10"
+                  >
+                    <Link href="/sobre">Saiba Mais</Link>
+                  </Button>
+                </div>
+              </div>
+              <div className="md:w-1/2 relative">
+                <div className="absolute inset-0 bg-gradient-to-r from-white/50 to-transparent z-10 md:hidden"></div>
+                <OptimizedImage
+                  src="/clt_humilhado.png?height=400&width=600"
+                  alt="Trabalhadores unidos"
+                  width={600}
+                  height={400}
+                  className="rounded-lg shadow-2xl transform hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        <section className="py-24">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl font-heading font-bold text-center mb-4">Como Podemos Ajudar</h2>
+            <p className="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
+              Nossa plataforma oferece ferramentas e recursos para proteger seus direitos e melhorar seu ambiente de
+              trabalho.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <FeatureCard
+                icon={<AlertTriangle className="h-10 w-10 text-primary" />}
+                title="Reclamações Anônimas"
+                description="Registre suas preocupações de forma segura e anônima, sem medo de represálias."
+              />
+              <FeatureCard
+                icon={<BarChart2 className="h-10 w-10 text-primary" />}
+                title="Acompanhamento de Status"
+                description="Acompanhe o progresso de suas reclamações e receba atualizações em tempo real."
+              />
+              <FeatureCard
+                icon={<Users className="h-10 w-10 text-primary" />}
+                title="Avaliações de Empresas"
+                description="Contribua para a transparência avaliando anonimamente as práticas trabalhistas."
+              />
+            </div>
+          </div>
+        </section>
+
+        <section className="py-24 bg-gray-50">
+  <div className="container mx-auto px-4">
+    <h2 className="text-3xl font-heading font-bold text-center mb-4">Recursos Educacionais</h2>
+    <p className="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
+      Conheça seus direitos e aprenda a se proteger no ambiente de trabalho.
+    </p>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <Link href="/recursos/direitos-trabalhistas">
+        <ResourceCard
+          icon={<Book className="h-8 w-8 text-primary" />}
+          title="Direitos Trabalhistas"
+          description="Guia completo sobre seus direitos fundamentais como trabalhador."
+        />
+      </Link>
+      <Link href="/recursos/protecao-no-trabalho">
+        <ResourceCard
+          icon={<Shield className="h-8 w-8 text-primary" />}
+          title="Proteção no Trabalho"
+          description="Aprenda a identificar e lidar com situações de assédio e discriminação."
+        />
+      </Link>
     </div>
-  );
+    <div className="text-center mt-8">
+      <Button asChild size="lg" className="bg-primary hover:bg-primary/90">
+        <Link href="/recursos">
+          Ver Todos os Recursos
+        </Link>
+      </Button>
+    </div>
+  </div>
+</section>
+
+        <section className="py-24 gradient-bg relative overflow-hidden">
+          <div className="absolute inset-0 hero-pattern opacity-50"></div>
+          <div className="relative container mx-auto px-4 text-center">
+            <h2 className="text-3xl font-heading font-bold mb-4">Pronto para fazer a diferença?</h2>
+            <p className="text-xl mb-8 text-gray-600 max-w-2xl mx-auto">
+              Junte-se a nós na missão de criar ambientes de trabalho mais justos e respeitosos.
+            </p>
+            <Button asChild size="lg" className="bg-primary hover:bg-primary/90">
+              <Link href="/registro">
+                Comece Agora
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+            </Button>
+          </div>
+        </section>
+      </main>
+    </div>
+  )
+}
+
+function FeatureCard({ icon, title, description }) {
+  return (
+    <Card className="transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+      <CardContent className="p-6">
+        <div className="mb-4 bg-primary/10 w-16 h-16 rounded-lg flex items-center justify-center">{icon}</div>
+        <h3 className="text-xl font-heading font-semibold text-gray-900 mb-2">{title}</h3>
+        <p className="text-gray-600">{description}</p>
+      </CardContent>
+    </Card>
+  )
+}
+
+function ResourceCard({ icon, title, description }) {
+  return (
+    <Card className="transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+      <CardContent className="p-6">
+        <div className="flex items-center mb-4">
+          <div className="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center mr-4">{icon}</div>
+          <h3 className="text-xl font-heading font-semibold text-gray-900">{title}</h3>
+        </div>
+        <p className="text-gray-600">{description}</p>
+      </CardContent>
+    </Card>
+  )
 }
