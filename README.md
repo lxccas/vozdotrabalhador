@@ -64,5 +64,3 @@ Voz do Trabalhador é uma plataforma web que permite aos trabalhadores registrar
    - Assistência básica aos usuários
    - Direcionamento para recursos relevantes
 
-## Estrutura do Projeto
-
