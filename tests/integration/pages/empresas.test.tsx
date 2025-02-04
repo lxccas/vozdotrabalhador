@@ -2,7 +2,6 @@ import React from "react"
 import { render, screen, waitFor } from "@testing-library/react"
 import CompaniesPage from "@/app/empresas/page"
 
-// Mock do fetch
 global.fetch = jest.fn(() =>
   Promise.resolve({
     ok: true,
