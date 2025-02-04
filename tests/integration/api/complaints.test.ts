@@ -2,7 +2,6 @@ import { createMocks } from "node-mocks-http"
 import { GET, POST } from "@/app/api/complaints/route"
 import prisma from "@/lib/prisma"
 
-// Mock do Prisma
 jest.mock("@/lib/prisma", () => ({
   complaint: {
     findMany: jest.fn(),
