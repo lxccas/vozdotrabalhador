@@ -2,7 +2,6 @@ import React from "react"
 import { render, screen, fireEvent, waitFor } from "@testing-library/react"
 import { CompanyRating } from "@/components/CompanyRating"
 
-// Mock do useSession
 jest.mock("next-auth/react", () => ({
   useSession: () => ({
     data: { user: { id: "1", name: "Test User" } },
@@ -10,7 +9,6 @@ jest.mock("next-auth/react", () => ({
   }),
 }))
 
-// Mock do fetch
 global.fetch = jest.fn(() =>
   Promise.resolve({
     ok: true,
@@ -35,7 +33,7 @@ describe("CompanyRating", () => {
     render(<CompanyRating {...mockProps} />)
 
     const ratingButtons = screen.getAllByRole("button", { name: /Avaliar \d estrelas/ })
-    fireEvent.click(ratingButtons[3]) // Select 4 stars
+    fireEvent.click(ratingButtons[3])
 
     const textarea = screen.getByPlaceholderText("Escreva sua avaliação...")
     fireEvent.change(textarea, { target: { value: "Great company!" } })
