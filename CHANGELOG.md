@@ -42,7 +42,7 @@ e este projeto adere ao [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 - Ajuste nas avaliações de empresas
 - Correção na rota de API para empresas individuais
 
-## [0.1.0] - 2023-06-01
+## [0.1.0]
 
 ### Adicionado
 
